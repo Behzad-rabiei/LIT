@@ -5,11 +5,11 @@ import { generateAccessControlConditions } from './accessControl'
 const chain = "ethereum";
 
 
-const decryptSimpleString = async (encryptedString: any, accounts: string[]) => {
+const decryptSimpleString = async (encryptedString: any) => {
     const litNodeClient = await initializeLitClient();
     const sessionSigs = await getSessionSignatures();
 
-    const accessControlConditions = generateAccessControlConditions(accounts);
+    const accessControlConditions = generateAccessControlConditions();
 
     const decryptedString = await LitJsSdk.decryptToString(
         {

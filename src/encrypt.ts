@@ -5,12 +5,12 @@ const chain = "ethereum";
 
 
 
-const encryptSimpleString = async (message: string, accounts: string[]) => {
+const encryptSimpleString = async (message: string) => {
     const litNodeClient = await initializeLitClient();
     const sessionSigs = await getSessionSignatures();
 
-    const accessControlConditions = generateAccessControlConditions(accounts);
-
+    const accessControlConditions = generateAccessControlConditions();
+    console.log(accessControlConditions)
     // Encrypt the data
     const encryptedData = await LitJsSdk.encryptString({
         accessControlConditions,
